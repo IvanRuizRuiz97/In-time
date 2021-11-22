@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Calendario</title>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="jquery-calendar.css">
+<!-- CUSTOM CSS -->
+<link rel="stylesheet" href="calendario.css">
+<!-- FAVICON -->
+<link rel="icon" href="favicon.ico" type="image/ico" />
+</head>
+<body>
+	<div class="row">
+		<div class="col-xs-12">
+			<div id="b">
+				<label>Leyenda: </label> <label style="color: #9eec8ac5;">Restriccion,</label><label
+					style="color: #3d5ce7c5;">Reunion</label>
+			</div>
+			<div>
+				<input type="button" id="volver" value="Volver" onClick="window.history.back()" style="margin-left:5%">
+				<input type="week" id="selectSemana" value="Elegir semana" style="margin-left:5%">
+				<input type="button" id="buscar" value="Buscar" data-bind="click:$root.buscarPorSemana">
+			</div>
+			<div id="calendar" class="calendar">
+
+				<div class="calendar-timeline"
+					style="padding-top: 51px; margin-top: 60px;">
+
+					<ul>
+						<li style="height: 50px;"><span>00:00</span></li>
+						<li style="height: 50px;"><span>00:30</span></li>
+						<li style="height: 50px;"><span>01:00</span></li>
+						<li style="height: 50px;"><span>01:30</span></li>
+						<li style="height: 50px;"><span>02:00</span></li>
+						<li style="height: 50px;"><span>02:30</span></li>
+						<li style="height: 50px;"><span>03:00</span></li>
+						<li style="height: 50px;"><span>03:30</span></li>
+						<li style="height: 50px;"><span>04:00</span></li>
+						<li style="height: 50px;"><span>04:30</span></li>
+						<li style="height: 50px;"><span>05:00</span></li>
+						<li style="height: 50px;"><span>05:30</span></li>
+						<li style="height: 50px;"><span>06:00</span></li>
+						<li style="height: 50px;"><span>06:30</span></li>
+						<li style="height: 50px;"><span>07:00</span></li>
+						<li style="height: 50px;"><span>07:30</span></li>
+						<li style="height: 50px;"><span>08:00</span></li>
+						<li style="height: 50px;"><span>08:30</span></li>
+						<li style="height: 50px;"><span>09:00</span></li>
+						<li style="height: 50px;"><span>09:30</span></li>
+						<li style="height: 50px;"><span>10:00</span></li>
+						<li style="height: 50px;"><span>10:30</span></li>
+						<li style="height: 50px;"><span>11:00</span></li>
+						<li style="height: 50px;"><span>11:30</span></li>
+						<li style="height: 50px;"><span>12:00</span></li>
+						<li style="height: 50px;"><span>12:30</span></li>
+						<li style="height: 50px;"><span>13:00</span></li>
+						<li style="height: 50px;"><span>13:30</span></li>
+						<li style="height: 50px;"><span>14:00</span></li>
+						<li style="height: 50px;"><span>14:30</span></li>
+						<li style="height: 50px;"><span>15:00</span></li>
+						<li style="height: 50px;"><span>15:30</span></li>
+						<li style="height: 50px;"><span>16:00</span></li>
+						<li style="height: 50px;"><span>16:30</span></li>
+						<li style="height: 50px;"><span>17:00</span></li>
+						<li style="height: 50px;"><span>17:30</span></li>
+						<li style="height: 50px;"><span>18:00</span></li>
+						<li style="height: 50px;"><span>18:30</span></li>
+						<li style="height: 50px;"><span>19:00</span></li>
+						<li style="height: 50px;"><span>19:30</span></li>
+						<li style="height: 50px;"><span>20:00</span></li>
+						<li style="height: 50px;"><span>20:30</span></li>
+						<li style="height: 50px;"><span>21:00</span></li>
+						<li style="height: 50px;"><span>21:30</span></li>
+						<li style="height: 50px;"><span>22:00</span></li>
+						<li style="height: 50px;"><span>22:30</span></li>
+						<li style="height: 50px;"><span>23:00</span></li>
+						<li style="height: 50px;"><span>23:30</span></li>
+
+					</ul>
+				</div>
+				<div class="calendar-events">
+					
+					<ul>
+						<li class="calendar-events-day" data-time="1603753200"
+							style="width: 14.2457%;"><div class="calendar-day-header"
+								style="height: 68px;">
+								<span class="weektoday" style="width: 100%;">Lunes</span>
+							</div>
+							<ul id="lunes" style="height: 2400px;">
+								<!-- ko foreach : { data: listaFichajesL, as :"fichaje" } -->
+								<li
+									style="background: rgb(142, 224, 243); left: 0px; width: 25%; opacity: 1; float: left; position: relative">
+									<em data-bind="html : name" style="overflow-wrap: break-word"></em>
+								</li>
+								<!-- /ko -->
+							</ul></li>
+						<li class="calendar-events-day" data-time="1603753200"
+							style="width: 14.2857%;"><div class="calendar-day-header"
+								style="height: 68px;">
+								<span class="weektoday" style="width: 100%;">Martes</span>
+							</div>
+							<ul id="martes" style="height: 2400px;">
+								<!-- ko foreach : { data: listaFichajesM, as :"fichaje" } -->
+								<li
+									style="background: rgb(142, 224, 243); top: 300px; height: 150px; left: 0px; width: 25%; opacity: 1; float: left; position: relative">
+									<em data-bind="html : name" style="overflow-wrap: break-word"></em>
+								</li>
+								<!-- /ko -->
+							</ul></li>
+						<li class="calendar-events-day" data-time="1603839600"
+							style="width: 14.2857%;"><div class="calendar-day-header"
+								style="height: 68px;">
+								<span class="weektoday" style="width: 100%;">Miercoles</span>
+							</div>
+							<ul id="miercoles" style="height: 2400px;">
+								<!-- ko foreach : { data: listaFichajesX, as :"fichaje" } -->
+								<li
+									style="background: rgb(142, 224, 243); top: 300px; height: 150px; left: 0px; width: 25%; opacity: 1; float: left; position: relative">
+									<em data-bind="html : name" style="overflow-wrap: break-word"></em>
+								</li>
+								<!-- /ko -->
+							</ul></li>
+						<li class="calendar-events-day" data-time="1603926000"
+							style="width: 14.2857%;"><div class="calendar-day-header"
+								style="height: 68px;">
+								<span class="weektoday" style="width: 100%;">Jueves</span>
+							</div>
+							<ul id="jueves" style="height: 2400px;">
+								<!-- ko foreach : { data: listaFichajesJ, as :"fichaje" } -->
+								<li
+									style="background: rgb(142, 224, 243); top: 300px; height: 150px; left: 0px; width: 25%; opacity: 1; float: left; position: relative">
+									<em data-bind="html : name" style="overflow-wrap: break-word"></em>
+								</li>
+								<!-- /ko -->
+							</ul></li>
+						<li class="calendar-events-day" data-time="1604012400"
+							style="width: 14.2857%;"><div class="calendar-day-header"
+								style="height: 68px;">
+								<span class="weektoday" style="width: 100%;">Viernes</span>
+							</div>
+							<ul id="viernes" style="height: 2400px;">
+								<!-- ko foreach : { data: listaFichajesV, as :"fichaje" } -->
+								<li
+									style="background: rgb(142, 224, 243); top: 300px; height: 150px; left: 0px; width: 25%; opacity: 1; float: left; position: relative">
+									<em data-bind="html : name" style="overflow-wrap: break-word"></em>
+								</li>
+								<!-- /ko -->
+							</ul></li>
+						<li class="calendar-events-day" data-time="1604012400"
+							style="width: 14.2857%;"><div class="calendar-day-header"
+								style="height: 68px;">
+								<span class="weektoday" style="width: 100%;">Sabado</span>
+							</div>
+							<ul id="sabado" style="height: 2400px;">
+								<!-- ko foreach : { data: listaFichajesS, as :"fichaje" } -->
+								<li
+									style="background: rgb(142, 224, 243); top: 300px; height: 150px; left: 0px; width: 25%; opacity: 1; float: left; position: relative">
+									<em data-bind="html : name" style="overflow-wrap: break-word"></em>
+								</li>
+								<!-- /ko -->
+							</ul></li>
+						<li class="calendar-events-day" data-time="1604012400"
+							style="width: 13.2857%;"><div class="calendar-day-header"
+								style="height: 68px;">
+								<span class="weektoday" style="width: 100%;">Domingo</span>
+							</div>
+							<ul id="domingo" style="height: 2400px;">
+								<!-- ko foreach : { data: listaFichajesD, as :"fichaje" } -->
+								<li
+									style="background: rgb(142, 224, 243); top: 300px; height: 150px; left: 0px; width: 25%; opacity: 1; float: left; position: relative">
+									<em data-bind="html : name" style="overflow-wrap: break-word"></em>
+									
+								</li>
+								<!-- /ko -->
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+	<script src="https://knockoutjs.com/downloads/knockout-3.5.0.js"></script>
+
+	<script src="calendar.js"></script>
+</body>
+</html>
