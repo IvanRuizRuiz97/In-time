@@ -16,7 +16,7 @@ import com.app.siget.excepciones.DiferentesContrasenasException;
 
 
 @RestController
-@CrossOrigin(origins= {"http://localhost:8080","https://sige-equipo1-mantenimiento.herokuapp.com"},allowedHeaders="*")
+@CrossOrigin(origins= {"http://localhost:8080",},allowedHeaders="*")
 public class Controller {
 
 	private static final String PASS = "pwd";
@@ -30,9 +30,8 @@ public class Controller {
 		String password = jso.getString(PASS);
 		Manager.get().login(name, password);
 		
-		
-		//return isAdmin;
 	}
+		
 	@PostMapping("/entrada")
 	public void entrada(@RequestBody Map<String, Object> datos) {
 			
