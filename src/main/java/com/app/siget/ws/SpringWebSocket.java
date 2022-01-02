@@ -53,6 +53,9 @@ public class SpringWebSocket extends TextWebSocketHandler {
 //				session.sendMessage(new TextMessage(Manager.get().filtrarPorSemanaUsuario(jso.getString(SEMANA),(String) jso.get(NOMBRE)).toString()));
 			
 			break;
+		case "leerIncidencias":
+			session.sendMessage(new TextMessage(Manager.get().leerIncidencia().toString()));
+			break;
 			
 //		case "entrada":
 //			Manager.get().entradaFichaje((String) jso.get(NOMBRE), jso.getString(DIA), jso.getString(HI), jso.getString(HF), "false", jso.getString("semana"));
@@ -66,6 +69,7 @@ public class SpringWebSocket extends TextWebSocketHandler {
 			// Misma condicion para modificar usuario tanto para Asistente como para Admin
 			Manager.get().modificarUsuario(jso.getString(NOMBRE), jso.getString("email"), jso.getString("pwd"));
 			break;
+		
 		
 		
 		

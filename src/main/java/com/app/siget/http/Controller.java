@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.siget.dominio.Incidencia;
 import com.app.siget.dominio.Manager;
 import com.app.siget.excepciones.AccessNotGrantedException;
 import com.app.siget.excepciones.CredencialesInvalidasException;
@@ -15,7 +16,7 @@ import com.app.siget.excepciones.DiferentesContrasenasException;
 
 
 @RestController
-@CrossOrigin(origins= {"http://localhost:8080","https://sige-equipo1-mantenimiento.herokuapp.com"},allowedHeaders="*")
+@CrossOrigin(origins= {"http://localhost:8080","https://irr-fichajes.herokuapp.com/"},allowedHeaders="*")
 public class Controller {
 
 	private static final String PASS = "pwd";
@@ -28,7 +29,9 @@ public class Controller {
 		String name = jso.getString(USERNAME);
 		String password = jso.getString(PASS);
 		Manager.get().login(name, password);
+		
 	}
+		
 	@PostMapping("/entrada")
 	public void entrada(@RequestBody Map<String, Object> datos) {
 			
@@ -80,5 +83,27 @@ public class Controller {
 		String[] parts = page.split("/");
 		Manager.get().checkAccess(name, token, parts[parts.length - 1]);
 	}
+	@PostMapping("/crearIncidencia")
+	public void crearIncidencia(@RequestBody Map<String, Object> datos) {
+			
+		JSONObject jso = new JSONObject(datos);
+		String name= jso.getString("userName");
+		String tipo= jso.getString("tipo");
+		String body= jso.getString("body");
+		Incidencia ic = new Incidencia(tipo, name, body);
+		Manager.get().crearIncidencia(ic);
+		
+	}
+//	@PostMapping("/crearIncidencia")
+//	public void updateIncidencia(@RequestBody Map<String, Object> datos) {
+//			
+//		JSONObject jso = new JSONObject(datos);
+//		String name= jso.getString("userName");
+//		String tipo= jso.getString("tipo");
+//		String body= jso.getString("body");
+//		Incidencia ic = new Incidencia(tipo, name, body);
+//		Manager.get().crearIncidencia(ic);
+//		
+//	}
 
 }

@@ -20,6 +20,7 @@ import com.app.siget.excepciones.CredencialesInvalidasException;
 import com.app.siget.excepciones.FranjaHorariaOcupadaException;
 import com.app.siget.persistencia.ActividadDAO;
 import com.app.siget.persistencia.FichajeDAO;
+import com.app.siget.persistencia.IncidenciaDao;
 import com.app.siget.persistencia.TokenDAO;
 import com.app.siget.persistencia.UserDAO;
 import java.util.Objects;
@@ -56,6 +57,7 @@ public class Manager {
 				JSONObject jso = new JSONObject();
 				
 				jso.put("token", t.getToken());
+				jso.put("isAdmin",u.getIsAdmin());
 				if (this.session != null) {
 					this.session.sendMessage(new TextMessage(jso.toString()));
 				}
@@ -131,10 +133,12 @@ public class Manager {
 		if(usuario==null) {
 			
 		
-		UserDAO.insertar(new User(name, email, encriptarMD5(password)));
+		UserDAO.insertar(new User(name, email, encriptarMD5(password),false));
 		}
 
 	}
+	
+	
 
 	
 
@@ -367,6 +371,40 @@ public class Manager {
 		jso.put("actividades", jsa);
 		return jso;
 	}
+	public boolean crearIncidencia(Incidencia i) {
+		//ArrayList<Incidencia> incidencias = IncidenciaDao.insertarIncidencia(i);
+		IncidenciaDao.insertarIncidencia(i);
+		
+
+		return true;
+		
+		
+		
+	}
+	public JSONObject leerIncidencia() {
+		JSONObject jso = new JSONObject();
+		JSONArray jsa = new JSONArray();
+		
+		ArrayList<Incidencia> inc = IncidenciaDao.leerIncidencia();
+
+		for (int i = 0; i < inc.size(); i++) {
+			Incidencia incidencia = inc.get(i);
+			jsa.put(incidencia.toJSON());
+			
+		}
+//			
+		
+		jso.put("incidencias", jsa);
+		return jso;
+		
+
+		
+		
+		
+		
+	}
+
+	
 
 
 }
