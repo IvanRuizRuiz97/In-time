@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar -cp target/classes:target/dependency/* --server.port=$PORT
+web: java -jar target/irr-intime-2.0-SNAPSHOT.war 
