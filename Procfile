@@ -1,1 +1,1 @@
-web: java -jar target/SIGET_Grupo_2-0.0.1-SNAPSHOT.war --server.port=$PORT
+web: java $JAVA_OPTS -jar -cp target/classes:target/dependency/* --server.port=$PORT
