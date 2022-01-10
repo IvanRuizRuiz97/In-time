@@ -15,13 +15,17 @@ body {
 }
 .table-container{
   display: flex;
+  flex-direction: column;
     justify-content: center;
+    overflow: auto;
 
 }
 table{
+  overflow: scroll;
   border-spacing: 0px;
     border: 1px solid grey;
     margin-bottom: 3em;
+    
 
 }
 

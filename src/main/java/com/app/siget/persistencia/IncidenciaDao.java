@@ -152,14 +152,13 @@
 		
 		
 
-		public static void eliminar(Fichaje f) {
-			Document document;
+		public static void eliminar(int id) {
+			
 			MongoCollection<Document> coleccion;
 
-			if (f != null) {
+			if (id != 0) {
 				coleccion = AgenteDB.get().getBd(INC);
-				document = new Document("name", f.getName());
-				coleccion.findOneAndDelete(document);
+				coleccion.findOneAndDelete(Filters.eq("id", String.valueOf(id)));
 			}
 
 		}

@@ -11,11 +11,11 @@
 </head>
 <body>
 	<h2>Listado de Incidencias</h2>
+	
 	<!-- ko if: rol() === 'true'-->
-	<p>Rol Administrador</p>
-
-	<div>
-
+	<div class="container-incidencias">
+		
+		<p class="rol">Rol Administrador</p>
 		<table>
 			<tr>
 				<th>ID</th>
@@ -23,6 +23,7 @@
 				<th>Tipo</th>
 				<th>Usuario</th>
 				<th>Descripción</th>
+				<th>Accion</th>
 			</tr>
 			<!--  ko foreach: incidenciasAll -->
 			<tr>
@@ -31,6 +32,7 @@
 				<td data-bind="html: $data.tipo"></td>
 				<td data-bind="html: $data.name"></td>
 				<td data-bind="html: $data.body"></td>
+				<td data-bind="click : $parent.deleteIncidencia"><img  src="https://img.icons8.com/material-outlined/30/000000/filled-trash.png"/></td>
 	
 			</tr>
 				
@@ -44,7 +46,7 @@
 	<div class="container-form">
 
 		<form name="formulario">
-			<label for="tipo">Tipo:</label>
+			<label for="tipo">Tipo</label>
 			<input type="text" id="tipo" name="tipo" required placeholder="Asunto">
 			<br>
 

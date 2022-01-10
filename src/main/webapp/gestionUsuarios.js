@@ -50,7 +50,7 @@ function ViewModel() {
 	if("localhost:8080"== window.location.host){
 		var url = 'ws://' + window.location.host + '/SIGETEquipo1';
 	}else{
-		var url = 'wss://' + window.location.host + '/SIGETEquipo1';
+		var url = 'wss://' + window.location.host + ':8080/SIGETEquipo1';
 	}
 	self.sws = new WebSocket(url);
 
@@ -148,7 +148,7 @@ function ViewModel() {
 
 			function unloadPopupBox() {    // TO Unload the Popupbox
 				$('#popup_box').fadeOut("slow");
-				$("#container").css({ // this is just for style        
+				$("#container").css({ // this is just for style
 					"opacity": "1"
 				});
 				window.location.href = window.location.href;
@@ -235,13 +235,13 @@ function ViewModel() {
 
 	/*
 	 * self.eliminarUsuario = function() {
-	 * 
-	 * 
+	 *
+	 *
 	 * const info = { type: 'eliminar', nombre: $('#actividad').val(), usuario:
 	 * document.getElementById("eliminar").options[document.getElementById("eliminar").selectedIndex].text,
 	 * success : function() { sessionStorage.userName = $('#username').val();
 	 * alert('Se ha eliminado correctamente'); }, error : function(response) {
-	 * 
+	 *
 	 * alert('No se ha eliminado'); } }; self.sws.send(JSON.stringify(info)); };
 	 */
 	class Usuario {

@@ -50,6 +50,30 @@ function viewModel() {
 		return cadena;
 
 	}
+	self.deleteIncidencia = function(event){
+		
+		const info = {
+			id: event.id,
+		};
+		const data = {
+			data: JSON.stringify(info),
+			url: 'deleteIncidencia',
+			type: 'delete',
+			contentType: 'application/json',
+			success: function() {
+				self.incidenciasAll.remove(event);
+			},
+			error: function() {
+				alert("No se ha eliminado de manera correcta")
+			}
+		};
+		$.ajax(data);
+		
+	
+	}
+}
+
+
 
 	
 	
@@ -69,7 +93,7 @@ function viewModel() {
 	
 	
 	
-}
+
 
 const vm = new viewModel();
 ko.applyBindings(vm);

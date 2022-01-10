@@ -215,13 +215,27 @@ public class Manager {
 //		return jso;
 //	}
 	
-	public JSONObject leerFichajes(String nombre) {
+	public JSONObject leerFichajes() {
+		JSONObject jso = new JSONObject();
+		JSONArray jsa = new JSONArray();
+		
+		for (Fichaje f : FichajeDAO.leerFichajes()) {
+			jsa.put(f.toJSON());
+		}
+		jso.put("type", "all");
+		jso.put("fichajes", jsa);
+		return jso;
+		
+	}
+	
+	public JSONObject leerFichajesUsuario(String nombre) {
 		JSONObject jso = new JSONObject();
 		JSONArray jsa = new JSONArray();
 
 		for (Fichaje f : FichajeDAO.leerFichajesUsuario(nombre)) {
 			jsa.put(f.toJSON());
 		}
+		jso.put("type", "singular");
 		jso.put("fichajes", jsa);
 		return jso;
 	}
@@ -401,6 +415,12 @@ public class Manager {
 		
 		
 		
+		
+	}
+
+	public void deleteIncidencia(int id) {
+		
+		IncidenciaDao.eliminar(id);
 		
 	}
 

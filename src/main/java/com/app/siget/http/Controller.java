@@ -2,8 +2,11 @@ package com.app.siget.http;
 
 import java.io.IOException;
 import java.util.Map;
+
+import org.apache.tomcat.util.http.fileupload.ParameterParser;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -93,6 +96,13 @@ public class Controller {
 		Incidencia ic = new Incidencia(tipo, name, body);
 		Manager.get().crearIncidencia(ic);
 		
+	}
+	@DeleteMapping("/deleteIncidencia")
+	public void deleteIncidencia(@RequestBody Map<String, Object> datos) {
+		JSONObject jso = new JSONObject(datos);
+		
+		int id = jso.getInt("id");
+		Manager.get().deleteIncidencia(id);
 	}
 //	@PostMapping("/crearIncidencia")
 //	public void updateIncidencia(@RequestBody Map<String, Object> datos) {
