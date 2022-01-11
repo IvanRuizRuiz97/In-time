@@ -1,0 +1,73 @@
+body {
+	margin: 0;
+	padding: 0;
+  
+	font-family: sans-serif;
+	background-size: auto;
+	background-repeat: repeat;
+	background-color: #300a387a;
+}
+.calendar-container{
+  max-width: 1366px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.table-container{
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+
+}
+table{
+  overflow: scroll;
+  border-spacing: 0px;
+    border: 1px solid grey;
+    margin-bottom: 3em;
+    
+
+}
+
+th{
+  background: #fafafa;
+  border: 1px solid grey;
+}
+td{
+  border: 1px solid grey;
+  color: white;
+  padding:  0 0.3em;
+  
+}
+
+
+
+#button{
+	width: 100%;
+}
+
+.buttons-calendar{
+  display: block;
+}
+
+#volver{
+  width: 15%;
+  opacity:0.9; 
+  text-align: center;
+  outline: none;
+  background: grey;
+  color: black;
+  transition: 0.25s;
+  cursor: pointer;
+  display: block;
+  float: left;
+  padding:8px;
+  border-radius:10px;
+}
+
+ #volver{
+	display:inline;
+}
+
+
+

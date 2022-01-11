@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Calendario</title>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" href="jquery-calendar.css">
+	<!-- CUSTOM CSS -->
+	<link rel="stylesheet" href="calendario.css">
+	<!-- FAVICON -->
+	<link rel="icon" href="favicon.ico" type="image/ico" />
+
+
+
+</head>
+
+<body>
+	
+		
+	<div class="calendar-container">
+		<div class="buttons-calendar">
+			<button  id="volver" onClick="window.history.back()" style="margin-left:5%">Volver</button>
+		</div>
+	<!-- ko if: isAdmin() === 'true'-->
+		<div class="table-container">
+			<h2>Historial de fichajes</h2>
+			<br>
+			<table>
+				<tr>
+					<th>Nombre</th>
+					<th>Dia</th>
+					<th>Hora Entrada</th>
+					<th>Hora Salida</th>
+
+				</tr>
+				<!--  ko foreach: fichajesAll -->
+				<tr>
+					<td>
+						<p data-bind="html: $data.name"></p>
+					</td>
+					<td>
+						<p data-bind="html: $data.dia"></p>
+					</td>
+					<td>
+						<p data-bind="html: $data.HoraI"></p>
+					</td>
+					<td>
+						<p data-bind="html: $data.HoraF"></p>
+					</td>
+				</tr>
+
+
+				<!-- /ko -->
+			</table>
+		</div>
+	<!-- /ko -->
+		
+	
+		<div class="table-container">
+			<h2>Historial de incidencias de usuario</h2>
+			<br>
+			<table>
+				<tr>
+					<th>Nombre</th>
+					<th>Dia</th>
+					<th>Hora Entrada</th>
+					<th>Hora Salida</th>
+
+				</tr>
+				<!--  ko foreach: fichajesUsuario -->
+				<tr>
+					<td>
+						<p data-bind="html: $data.name"></p>
+					</td>
+					<td>
+						<p data-bind="html: $data.dia"></p>
+					</td>
+					<td>
+						<p data-bind="html: $data.HoraI"></p>
+					</td>
+					<td>
+						<p data-bind="html: $data.HoraF"></p>
+					</td>
+				</tr>
+
+
+				<!-- /ko -->
+			</table>
+		</div>
+	
+
+
+
+
+
+	
+
+</div>
+
+	</div>
+		
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+	<script src="https://knockoutjs.com/downloads/knockout-3.5.0.js"></script>
+	<script src="calendar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Calendario</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="jquery-calendar.css">
+<!-- CUSTOM CSS -->
+<link rel="stylesheet" href="incidencia.css">
+<!-- FAVICON -->
+<link rel="icon" href="favicon.ico" type="image/ico" />
+</head>
+<body>
+	<h2>Listado de Incidencias</h2>
+	
+	<!-- ko if: rol() === 'true'-->
+	<div class="container-incidencias">
+		
+		<p class="rol">Rol Administrador</p>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Fecha</th>
+				<th>Tipo</th>
+				<th>Usuario</th>
+				<th>Descripción</th>
+				<th>Accion</th>
+			</tr>
+			<!--  ko foreach: incidenciasAll -->
+			<tr>
+				<td data-bind="html: $data.id"></td>
+				<td data-bind="html: $data.fecha"></td>
+				<td data-bind="html: $data.tipo"></td>
+				<td data-bind="html: $data.name"></td>
+				<td data-bind="html: $data.body"></td>
+				<td data-bind="click : $parent.deleteIncidencia"><img  src="https://img.icons8.com/material-outlined/30/000000/filled-trash.png"/></td>
+	
+			</tr>
+				
+				
+			<!-- /ko -->
+		</table>
+	</div>
+	<!--/ko-->
+
+	
+	<div class="container-form">
+
+		<form name="formulario">
+			<label for="tipo">Tipo</label>
+			<input type="text" id="tipo" name="tipo" required placeholder="Asunto">
+			<br>
+
+			<label for="body">Descripción</label>
+			<textarea type="text" name="body" id="body"  placeholder="Describa su incidencia"></textarea>
+			
+			<br>
+			<div class="form-buttons">
+
+				<button onclick='createIncidencia()'>Crear</button>
+				<button onclick= window.history.back()> Cancelar</button>
+			</div>		
+		</form>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+	<script src="https://knockoutjs.com/downloads/knockout-3.5.0.js"></script>
+
+	<script src="incidencia.js"></script>
+	<script src="addIncidencia.js"></script>
+</body>
+</html>

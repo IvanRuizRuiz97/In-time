@@ -38,16 +38,17 @@ public final class UserDAO {
 	public static List<User> leerUsers() {
 		ArrayList<User> usuarios = new ArrayList<>();
 		Document document;
-		User u = new User();
+		
 		MongoCollection<Document> coleccion = AgenteDB.get().getBd(USUARIO);
 		MongoCursor<Document> iter = coleccion.find().iterator();
 
 		while ((iter.hasNext())) {
 			document = iter.next();
-			
+			User u = new User();
 			u.setName(document.getString(NAME));
 			u.setEmail (document.getString(EMAIL));
 			u.setPassword(document.getString(PASSWORD));
+			u.setIsAdmin(document.getBoolean("isAdmin"));
 			
 			usuarios.add(u);
 		
@@ -80,6 +81,7 @@ public final class UserDAO {
 			document = new Document(NAME, user.getName());
 			document.append(EMAIL, user.getEmail());
 			document.append(PASSWORD, user.getPassword());
+			document.append("isAdmin", user.getIsAdmin());
 			
 			
 			coleccion.insertOne(document);
