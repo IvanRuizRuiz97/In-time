@@ -118,6 +118,9 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<start-class>com.app.siget.SigetEquipo1Application</start-class>
+		
+  <sonar.organization>ivanruizruiz97</sonar.organization>
+
 	</properties>
 
 	<build>
